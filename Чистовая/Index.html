@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="=X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <link rel="stylesheet" href="Css/Style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title id="Dynamic-Title">Страница приведствия</title>
+    </head>
+    <body>
+        <button id="Bt-Regist-Open-Pop" class="Bt-Regist-Open-Pop">Регистрация</button>
+        <fom>
+        <div id="Regist-Pop" class="Regist-Pop" onsubmit="return CheckData()">
+            <text class="Text-Regist">Регистрация</text>
+            <button id="Bt-Regist-Close-Pop" class="Bt-Regist-Close-Pop">x</button>
+            <div  class="User-Name-Regist" >
+                <text>Имя пользователя:</text>
+                <input type="text" placeholder="Введите имя пользователя" id="UserNameRegist" name="User-Name-Regist">
+                <text id="Hint-User-Name-Regist" class="Hint-User-Name-Regist">Введите имя пользоватя от 4 до 20 символов</text>
+                <text id="User-Name-Not-Corecct-Regist" class="User-Name-Not-Corecct-Regist">Имя пользователя введено не корректно</text>
+            </div>
+            <div class="User-Email-Regist">
+                <text>Почта:</text>
+                <input type="email" placeholder="Введите почту" id="UserEmailRegist" name="User-Email-Regist">
+                <text id="Hint-User-Email-Regist" class="Hint-User-Email-Regist">Введите почту по примеру example@example.com</text>
+                <text id="User-Email-Not-Corecct-Regist" class="User-Email-Not-Corecct-Regist">Почта введена не корректно</text>
+            </div>
+            <div  class="User-Password-Regist">
+                <text>Пароль:</text>
+                <input type="password" placeholder="Введите пароль" id="UserPasswordRegist" name="User-Password-Regist">
+                <text id="Hint-User-Password-Regist" class="Hint-User-Password-Regist"> Введите пароль от 4 до 20 символов</text>
+                <text id="User-Password-Not-Corecct-Regist" class="User-Password-Not-Corecct-Regist">Пароль введен не корректно</text>
+            </div>
+            <div  class="User-Repit-Password-Regist">
+                <text>Повтрно пароль:</text>
+                <input type="password" placeholder="Введите повторно пароль" id="UserRepitPasswordRegist" name="User-Repit-Password-Regist">
+                <text id="Hint-User-Repit-Password-Regist" class="Hint-User-Repit-Password-Regist">Выедите тот же пароль, что вводили ранее</text>
+                <text id="User-Repit-Password-Not-Corecct-Regist" class="User-Repit-Password-Not-Corecct-Regist">Пароли не совподают</text>
+            </div>
+            <form action="Main Page/Main.html">
+                <button  class="Bt-Regit-User"><text>Зарегистрироваться</text></button>
+        </div>
+        </form>
+        </fom>
+        <button id="Bt-Login-Open-Pop" class="Bt-Login-Open-Pop"> Войти</button>
+        <div id="Login-Pop" class="Login-Pop">
+        <text class="Text-Login">Авторизация</text>
+            <button id="Bt-Login-Close" class="Bt-Login-Close">Х</button>
+            <div id="User-Name-Login" class="User-Name-Login">
+                <text>Имя пользователя:</text>
+                <input type="text" placeholder="Введите имя пользователя">
+            </div>
+            <div id="User-Email-Login" class="User-Email-Login">
+                <text>Пароль:</text>
+                <input type="password" placeholder="Введите пароль">
+            </div>
+            <div id="Login-Not-Corecct" class="Login-Not-Corecct">
+                <text>Имя пользователя или пароль введены не корректно</text>
+            </div>
+            <form action="Main Page/Main.html">
+                <button id="Bt-Login-User" class="Bt-Login-User"><text>Войти</text></button>
+            </form>
+            </div>
+        <script src="Js/Index.js"></script>
+        <script src="Js/DriveLogDB.js"></script>
+    </body>
+</html>
