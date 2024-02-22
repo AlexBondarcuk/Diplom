@@ -1,0 +1,407 @@
+.body{
+    margin-left: 45px;
+    margin-right: 45px;
+    background-color: rgb(233, 233, 233);
+}
+
+.Hint-User-Name-Regist{
+    font-size: small;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: .3s, .3s;
+
+}
+
+.Hint-User-Name-Regist.open{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+.Hint-User-Email-Regist{
+    font-size: small;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: .3s, .3s;
+}
+
+.Hint-User-Email-Regist.open{
+    visibility: visible;
+    opacity: 1;
+    display: block; 
+}
+
+.Hint-User-Password-Regist{
+    font-size: small;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: .3s, .3s;
+}
+
+.Hint-User-Password-Regist.open{
+    visibility: visible;
+    opacity: 1;  
+    display: block;
+}
+
+.Hint-User-Repit-Password-Regist{
+    font-size: small;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: .3s, .3s;
+}
+
+.Hint-User-Repit-Password-Regist.open{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+.User-Name-Not-Corecct-Regist{
+    font-size: small;
+    font-weight: bolder;
+    color: red;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: .3s, .3s;
+
+}
+
+.User-Name-Not-Corecct-Regist.open{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+.User-Email-Not-Corecct-Regist{
+    font-size: small;
+    font-weight: bolder;
+    color: red;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: .3s, .3s; 
+}
+
+.User-Email-Not-Corecct-Regist.open{
+    visibility: visible;
+    opacity: 1; 
+    display: block; 
+}
+
+.User-Password-Not-Corecct-Regist{
+    font-size: small;
+    font-weight: bolder;
+    color: red;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: .3s, .3s;
+}
+
+.User-Password-Not-Corecct-Regist.open{
+    visibility: visible;
+    opacity: 1;  
+    display: block; 
+}
+
+.User-Repit-Password-Not-Corecct-Regist{
+    font-size: small;
+    font-weight: bolder;
+    color: red;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: .3s, .3s;
+}
+
+.User-Repit-Password-Not-Corecct-Regist.open{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+
+
+.Regist-Pop{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+    
+}
+
+::-webkit-scrollbar {
+    width: 0;
+  }
+
+.Regist-Pop.open{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.Login-Pop{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+}
+
+.Login-Pop.open{
+
+    visibility: visible;
+    opacity: 1; 
+}
+
+
+.warning-user{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;   
+}
+
+.warning-user.open{
+    visibility: visible;
+    opacity: 1;  
+}
+
+.warning-email{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;    
+}
+
+.warning-email.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+.warning-password{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;    
+}
+
+.warning-password.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+.warning-repassword{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+}
+
+.warning-repassword.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+.warning-distance{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s; 
+}
+
+.warning-distance.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+.warning-сonsumption{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;  
+}
+
+.warning-сonsumption.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+.warning-price{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;   
+}
+
+.warning-price.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+
+.THATsthefilter{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+    
+}
+
+.THATsthefilter.open{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.Thebrakingsystem{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+}
+
+.Thebrakingsystem.open{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.Engineandexhaust{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+}
+
+.Engineandexhaust.open{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}

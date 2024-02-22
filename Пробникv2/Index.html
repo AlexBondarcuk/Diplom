@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style.css">
+    <title id="Dynamic-Title">Приведственная страница</title>
+    </head>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between   py-3 mb-4 border-bottom  ">
+      
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="Main.html" class="nav-link px-2" id="Main-page">Главная</a></li>
+      <li><a href="Mileage-and-consumption-monitoring.html" class="nav-link px-2" id="Mileage-and-consumption-monitoring">Мониторинг пробега и расхода</a></li>
+      <li><a href="Technical-maintenance.html" class="nav-link px-2" id="Technical-maintenance">Техническое обслуживание</a></li>
+      <li><a href="Expenses-and-budget.html" class="nav-link px-2" id="Expenses-and-budget">Расходы и бюджет</a></li>
+      <li><a href="Index.html" class="nav-link px-2 link-secondary" id="About">О нас</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <button type="button" class="btn btn-outline-primary me-2" id="bt-login-open-pop">Войти</button>
+      <button type="button" class="btn btn-primary" id="bt-regist-open-pop">Регистрация</button>
+    </div>
+    </header>
+  <body  class="body" >
+
+    <div class="Login-Pop" id="Login-Pop" >
+    <div class="modal-dialog-singnin">
+        <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+          <div class="modal-header p-5 pb-4 border-bottom-0">
+            <h1 class="fw-bold mb-0 fs-2">Авторизация</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="bt-login-close-pop"></button>
+          </div>
+    
+          <div class="modal-body p-5 pt-0">
+            <form class="">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Электронная почта</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Пароль</label>
+              </div>
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Запомнить меня
+                </label>
+              </div>
+              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Войти</button>
+              <small class="text-body-secondary">Наимая "Войти" вы соглашаитесь обработкой данных </small>
+              <hr class="my-4">
+              <h2 class="fs-5 fw-bold mb-3">Нет аккаунта</h2>
+              <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" id="bt-pop-regist-open" type="button">
+                Регистрация
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+    
+<div  class="Regist-Pop" id="Regist-Pop" onsubmit="return CheckData()">
+    
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin" >
+    <div class="modal-dialog"  role="document" >
+      <div class="modal-content rounded-4 shadow" >
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <h1 class="fw-bold mb-0 fs-2">Регистрация</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="bt-regist-close-pop"></button>
+        </div>
+  
+        <div class="modal-body p-5 pt-0">
+          <form class="" >
+    
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control rounded-3" id="UserNameRegist" placeholder="Username">
+                <label for="floatingName">Имя пользователя</label>
+                <text id="Hint-User-Name-Regist" class="Hint-User-Name-Regist">Введите имя пользоватя от 4 до 20 символов</text>
+                <text id="User-Name-Not-Corecct-Regist" class="User-Name-Not-Corecct-Regist">Имя пользователя введено не корректно</text>
+              </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="UserEmailRegist" placeholder="name@example.com">
+              <label for="floatingInput">Электронная почта</label>
+              <text id="Hint-User-Email-Regist" class="Hint-User-Email-Regist">Введите почту по примеру example@example.com</text>
+              <text id="User-Email-Not-Corecct-Regist" class="User-Email-Not-Corecct-Regist">Почта введена не корректно</text>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control rounded-3" id="UserPasswordRegist" placeholder="Password">
+              <label for="floatingPassword">Пароль</label>
+              <text id="Hint-User-Password-Regist" class="Hint-User-Password-Regist"> Введите пароль от 4 до 20 символов</text>
+              <text id="User-Password-Not-Corecct-Regist" class="User-Password-Not-Corecct-Regist">Пароль введен не корректно</text>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control rounded-3" id="UserRepitPasswordRegist" placeholder="RePassword">
+                <label for="floatingPassword"> Повторный пароль</label>
+                <text id="Hint-User-Repit-Password-Regist" class="Hint-User-Repit-Password-Regist">Выедите тот же пароль, что вводили ранее</text>
+                <text id="User-Repit-Password-Not-Corecct-Regist" class="User-Repit-Password-Not-Corecct-Regist">Пароли не совподают</text>
+              </div>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Регистрация</button>
+            <small class="text-body-secondary">Нажимая "Регистрация" вы соглашаитесь обработкой данных</small>
+            <hr class="my-4">
+            <h2 class="fs-5 fw-bold mb-3">Уже есть аккаунт</h2>
+            <button type="button" class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" id="bt-pop-login-open">
+              Войти
+            </button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="container-fluid h-100 p-5 text-bg-dark bg-body-tertiary border rounded-3  bg-white shadow ">
+    <h1 class="display-5 fw-bold">Главная</h1>
+    <p class="col-md-8 fs-4">Получайте уведомления от предстоящих ТО, замены запчастей и учета расходов</p>
+    <button class="btn btn-outline-primary" id="bt-start-main" type="button">Начать</button>
+  </div>
+
+  <div class="row align-items-center g-lg-5 py-5 ">
+    <div class="col-lg-7 text-center text-lg-start " >
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Добро пожаловать в DriveLog</h1>
+      <p class="col-lg-10 fs-4 " >Погрузитесь в мир автомибилистов вместе с DriveLog. Твой дневник твоих дорожных приключений: просто и легко </p>
+    </div>
+    <div class="col-md-10 mx-auto col-lg-5  ">
+      <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary  bg-white shadow">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Электронная почта</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Пароль</label>
+        </div>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Запомнить меня
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+        <hr class="my-4">
+        <small class="text-body-secondary">Наимая "Войти" вы соглашаитесь обработкой данных</small>
+      </form>
+    </div>
+  </div>
+
+  
+  <div class="row align-items-md-stretch ">
+    <div class="col-md-6">
+      <div class="h-100 p-5 text-bg-dark bg-body-tertiary border rounded-3  bg-white shadow">
+        <h2>Мониторинг пробега и расхода</h2>
+        <p>Cледите, как ваша история растояния увеличивалась. Так же наблюдайтие, как ваш расход в автомобиле менялся с пустя время</p>
+        <button class="btn btn-outline-primary" id="bt-start-mileage-and-consumption-monitoring" type="button">Начать</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="h-100 p-5 bg-body-tertiary border rounded-3  bg-white shadow">
+        <h2>Техническое обслуживание</h2>
+        <p> Создавайте планированое ТО, замена расходных материалов</p>
+        <button class="btn btn-outline-primary" id="start-technical-maintenance" type="button">Начать</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row align-items-md-stretch">
+  <div class="col-md-6">
+    <div class="h-100 p-5 bg-body-tertiary border rounded-3 bg-white shadow mt-4">
+      <h2>Расходы и бюджет</h2>
+      <p>Ведите учет расходов на топливо, ТО, запчасти. Так же анализируйте бюджет и статистику расходов</p>
+      <button class="btn btn-outline-primary" id="start-expenses-and-budget" type="button">Начать</button>
+    </div>
+  </div>
+</div>
+
+  <div class="container  ">
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3 ">
+        <li><a href="Main.html" class="nav-link px-2 link-secondary" id="Main-page-floter">Главная</a></li>
+      <li><a href="Mileage-and-consumption-monitoring.html" class="nav-link px-2 link-secondary" id="Mileage-and-consumption-monitoring-floter">Мониторинг пробега и расхода</a></li>
+      <li><a href="Technical-maintenance.html" class="nav-link px-2 link-secondary" id="Technical-maintenance-floter">Техническое обслуживание</a></li>
+      <li><a href="Expenses-and-budget.html" class="nav-link px-2 link-secondary" id="Expenses-and-budget-floter">Расходы и бюджет</a></li>
+      <li><a href="Index.html" class="nav-link px-2 link-secondary" id="About-floter">О нас</a></li>
+      </ul>
+      <p class="text-center text-body-secondary">© 2024 DriveLog Company, Inc</p>
+    </footer>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="Index.js"></script>
+  </body>
+
+  <div class="warning-user" id="warning-user">
+  <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-bottom-0">
+          <h1 class="modal-title fs-5 ">Внимание</h1>
+        </div>
+        <div class="modal-body py-0">
+          <p>Пропущено имя пользователя</p>
+        </div>
+        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+          <button type="button" class="btn btn-lg btn-primary" id="bt-close-user-warning">Хорошо</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="warning-email" id="warning-email">
+  <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-bottom-0">
+          <h1 class="modal-title fs-5 ">Внимание</h1>
+        </div>
+        <div class="modal-body py-0">
+          <p>Пропущена электронная почта</p>
+        </div>
+        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+          <button type="button" class="btn btn-lg btn-primary" id="bt-close-email-warning">Хорошо</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="warning-password" id="warning-password">
+  <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-bottom-0">
+          <h1 class="modal-title fs-5 ">Внимание</h1>
+        </div>
+        <div class="modal-body py-0">
+          <p>Пропущен пароль</p>
+        </div>
+        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+          <button type="button" class="btn btn-lg btn-primary" id="bt-close-password-warning">Хорошо</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="warning-repassword" id="warning-repassword">
+  <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header border-bottom-0">
+          <h1 class="modal-title fs-5">Внимание</h1>
+        </div>
+        <div class="modal-body py-0">
+          <p>Пропущен повторный пароль</p>
+        </div>
+        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+          <button type="button" class="btn btn-lg btn-primary" id="bt-close-repassword-close">Хорошо</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</html>
