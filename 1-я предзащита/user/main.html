@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drivlog - главная</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Стили для подвала */
+        body {
+            padding-bottom: 100px; /* Отступ для footer */
+            margin-bottom: 50px; /* Оступ для контента, который может закрываться */
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+        .footer-links {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .footer-links li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+       
+    </style>
+</head>
+<body style="position: relative; min-height: 100vh;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Drivlog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="main.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fuel monitoring.html">Мониторинг топлива</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="maintenance monitoring.html">Мониторинг ТО</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Поддержка</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">О проекте</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="setting.html">Настройки</a>
+                            <a class="dropdown-item text-danger" href="index.html">Выход</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Содержимое страницы -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <button onclick="toggleNotifications()" class="btn btn-primary mt-3">Уведомления</button>
+            </div>
+            <div class="col-md-3">
+                <button onclick="toggleFuelHistory()" class="btn btn-primary mt-3">История расхода топлива</button>
+            </div>
+            <div class="col-md-3">
+                <button onclick="togglePartReplacementHistory()" class="btn btn-primary mt-3">История замены деталей</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notifications" style="display: none;">
+        <h1 style="text-align: center; font-weight: bold;">Уведомления</h1>
+        <p style="text-align: center;">Создавайте и просматривайте напоминания</p>
+
+        <form id="notificationForm">
+            <label for="title">Название:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="message">Описание:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <label for="date">Дата:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Время:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
+
+        <h2>Ближайшие уведомления (ближе чем через 7 дней)</h2>
+        <table id="upcomingNotifications">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Описание</th>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Здесь будут отображаться ближайшие уведомления -->
+            </tbody>
+        </table>
+
+        <h2>Все уведомления</h2>
+        <table id="allNotifications">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Описание</th>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Здесь будут отображаться все уведомления -->
+            </tbody>
+        </table>
+
+        <!-- Модальное окно для редактирования уведомления -->
+        <div id="editNotificationModal" class="modal">
+            <div class="modal-content">
+                <h2>Редактировать уведомление</h2>
+                <form id="editNotificationForm">
+                    <label for="editTitle">Название:</label>
+                    <input type="text" id="editTitle" name="title" required>
+
+                    <label for="editMessage">Описание:</label>
+                    <textarea id="editMessage" name="message" rows="4" required></textarea>
+
+                    <label for="editDate">Дата:</label>
+                    <input type="date" id="editDate" name="date" required>
+
+                    <label for="editTime">Время:</label>
+                    <input type="time" id="editTime" name="time" required>
+
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button type="button" id="cancelEditNotification" class="btn btn-secondary">Отмена</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="fuelHistory" style="display: none;">
+        <h1 style="text-align: center; font-weight: bold;">История расхода топлива</h1>
+        <p style="text-align: center;">Просматривайте как ваш расход топлива менялся</p>
+        <table id="fuelHistoryTable">
+            <thead>
+                <tr>
+                    <th>Расстояние</th>
+                    <th>Общий расход</th>
+                    <th>Средний расход</th>
+                    <th>Цена</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Здесь будет отображаться история расхода топлива -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="partReplacementHistory" style="display: none;">
+        <h1 style="text-align: center; font-weight: bold;">История замены деталей</h1>
+        <p style="text-align: center;">Просматривайте историю замены деталей</p>
+        <table id="partReplacementHistoryTable">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Артикул</th>
+                    <th>Описание</th>
+                    <th>Цена</th>
+                    <th>Дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Здесь будет отображаться история замены деталей -->
+            </tbody>
+        </table>
+    </div>
+   
+    <footer>
+        <div class="container text-center">
+            <div class="footer-links">
+                <a href="main.html">Главная</a>
+                <a href="maintenance monitoring.html">Мониторинг топлива</a>
+                <a href="maintenance monitoring.html">Мониторинг ТО</a>
+                <a href="support.html">Поддержка</a>
+                <a href="about.html">О проекте</a>
+            </div>
+            &copy; 2024 Drivlog. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleNotifications() {
+            const notifications = document.getElementById("notifications");
+            const fuelHistory = document.getElementById("fuelHistory");
+            const partReplacementHistory = document.getElementById("partReplacementHistory");
+
+            if (notifications.style.display === "none") {
+                notifications.style.display = "block";
+                fuelHistory.style.display = "none";
+                partReplacementHistory.style.display = "none";
+            } else {
+                notifications.style.display = "none";
+            }
+            updateBottomMargin();
+        }
+
+        function toggleFuelHistory() {
+            const notifications = document.getElementById("notifications");
+            const fuelHistory = document.getElementById("fuelHistory");
+            const partReplacementHistory = document.getElementById("partReplacementHistory");
+
+            if (fuelHistory.style.display === "none") {
+                fuelHistory.style.display = "block";
+                notifications.style.display = "none";
+                partReplacementHistory.style.display = "none";
+            } else {
+                fuelHistory.style.display = "none";
+            }
+            updateBottomMargin();
+        }
+
+        function togglePartReplacementHistory() {
+            const notifications = document.getElementById("notifications");
+            const fuelHistory = document.getElementById("fuelHistory");
+            const partReplacementHistory = document.getElementById("partReplacementHistory");
+
+            if (partReplacementHistory.style.display === "none") {
+                partReplacementHistory.style.display = "block";
+                notifications.style.display = "none";
+                fuelHistory.style.display = "none";
+            } else {
+                partReplacementHistory.style.display = "none";
+            }
+            updateBottomMargin();
+        }
+
+        const allNotificationsTable = document.getElementById("allNotifications");
+        const upcomingNotificationsTable = document.getElementById("upcomingNotifications");
+        const editNotificationModal = document.getElementById("editNotificationModal");
+        const editNotificationForm = document.getElementById("editNotificationForm");
+
+        document.getElementById("notificationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const notification = {
+                title: formData.get("title"),
+                message: formData.get("message"),
+                date: formData.get("date"),
+                time: formData.get("time")
+            };
+            // Добавляем уведомление в таблицу "Все уведомления"
+            addNotificationToTable(notification);
+            // Добавляем уведомление в таблицу "Ближайшие уведомления"
+            if (isUpcoming(notification.date)) {
+                addNotificationToUpcomingTable(notification);
+            }
+            // Очистка формы после отправки
+            this.reset();
+            updateBottomMargin();
+        });
+
+        function addNotificationToTable(notification) {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${notification.title}</td>
+                <td>${notification.message}</td>
+                <td>${notification.date}</td>
+                <td>${notification.time}</td>
+                <td>
+                    <button onclick="openEditModal(this)" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                    <button onclick="deleteNotification(this)" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                </td>
+            `;
+            allNotificationsTable.querySelector("tbody").appendChild(row);
+        }
+
+        function addNotificationToUpcomingTable(notification) {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${notification.title}</td>
+                <td>${notification.message}</td>
+                <td>${notification.date}</td>
+                <td>${notification.time}</td>
+                <td>
+                    <button onclick="openEditModal(this)" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                    <button onclick="deleteNotification(this)" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                </td>
+            `;
+            upcomingNotificationsTable.querySelector("tbody").appendChild(row);
+        }
+
+        function openEditModal(button) {
+            const row = button.closest("tr");
+            const cells = row.querySelectorAll("td");
+
+            document.getElementById("editTitle").value = cells[0].textContent;
+            document.getElementById("editMessage").value = cells[1].textContent;
+            document.getElementById("editDate").value = cells[2].textContent;
+            document.getElementById("editTime").value = cells[3].textContent;
+
+            editNotificationModal.style.display = "block";
+            // Передаем строку для удаления при сохранении изменений
+            editNotificationForm.dataset.rowIndex = row.rowIndex;
+        }
+
+        editNotificationForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const notification = {
+                title: formData.get("title"),
+                message: formData.get("message"),
+                date: formData.get("date"),
+                time: formData.get("time")
+            };
+
+            // Обновляем значения в таблице "Все уведомления"
+            const row = allNotificationsTable.rows[parseInt(this.dataset.rowIndex)];
+            row.cells[0].textContent = notification.title;
+            row.cells[1].textContent = notification.message;
+            row.cells[2].textContent = notification.date;
+            row.cells[3].textContent = notification.time;
+
+            // Закрываем модальное окно
+            editNotificationModal.style.display = "none";
+            updateBottomMargin();
+        });
+
+        document.getElementById("cancelEditNotification").addEventListener("click", function() {
+            editNotificationModal.style.display = "none";
+            updateBottomMargin();
+        });
+
+        function deleteNotification(button) {
+            const row = button.closest("tr");
+            row.remove();
+            updateBottomMargin();
+        }
+
+        function isUpcoming(dateString) {
+            const notificationDate = new Date(dateString);
+            const currentDate = new Date();
+            const sevenDaysLater = new Date(currentDate.getTime() + (7 * 24 * 60 * 60 * 1000)); // Текущая дата + 7 дней
+            return notificationDate <= sevenDaysLater;
+        }
+
+        function updateBottomMargin() {
+            const footerHeight = document.querySelector('footer').offsetHeight;
+            document.body.style.marginBottom = footerHeight + 'px';
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

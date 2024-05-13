@@ -1,0 +1,71 @@
+ /* Стили для подвала */
+ body {
+    padding-bottom: 100px; /* Отступ для footer */
+    margin-bottom: 50px; /* Оступ для контента, который может закрываться */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+.footer-links {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.footer-links li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.modal-footer .close-btn {
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.table {
+    background-color: #fff;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}

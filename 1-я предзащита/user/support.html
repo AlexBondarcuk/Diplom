@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drivlog - поддержка</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Стили для подвала */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+        .footer-links {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .footer-links li {
+            display: inline;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body style="position: relative; min-height: 100vh;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Drivlog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="main.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fuel monitoring.html">Мониторинг топлива</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="maintenance monitoring.html">Мониторинг ТО</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="support.html">Поддержка</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">О проекте</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Настройки</a>
+                            <a class="dropdown-item text-danger" href="#">Выход</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Содержимое страницы -->
+   
+    <div class="container">
+        <h1 class="mt-5">Форма отправки сообщения</h1>
+        <form id="messageForm" class="mt-3">
+            <div class="form-group">
+                <input type="text" id="messageSubject" name="messageSubject" class="form-control" placeholder="Тема сообщения" required>
+            </div>
+            <div class="form-group">
+                <textarea id="messageContent" name="messageContent" class="form-control" rows="5" placeholder="Содержание сообщения" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+
+
+    <footer>
+        <div class="container text-center">
+            <div class="footer-links">
+                <a href="main.html">Главная</a>
+                <a href="fuel monitoring.html">Мониторинг топлива</a>
+                <a href="maintenance monitoring.html">Мониторинг ТО</a>
+                <a href="support.html">Поддержка</a>
+                <a href="about.html">О проекте</a>
+            </div>
+            &copy; 2024 Drivlog. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("messageForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const messageSubject = formData.get("messageSubject");
+            const messageContent = formData.get("messageContent");
+
+            // Здесь можно добавить код для отправки сообщения на сервер или его обработки
+
+            // Пример вывода данных на консоль
+            console.log("Тема сообщения:", messageSubject);
+            console.log("Содержание сообщения:", messageContent);
+
+            // Очистка формы после отправки
+            this.reset();
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
